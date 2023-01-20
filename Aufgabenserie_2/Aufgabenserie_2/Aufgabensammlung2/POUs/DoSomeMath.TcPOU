@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="DoSomeMath" Id="{4a75e5f3-85b5-4cc5-abda-38066dc40cd2}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM DoSomeMath
+VAR
+	rValue1	: REAL	:= 7;	
+	rValue2	: REAL	:= 2;
+	rResult	: REAL	:= 0;
+	
+	iCounter : INT := 0;
+	
+	//Test Array
+	aTestArray 	: ARRAY[0..10] OF INT;
+	iTestValue	: INT := 0;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[rResult := f_Addition(rSum1 := rValue1, rSum2 := rValue2);
+rResult := f_Multiplication(rValue1, rValue2);
+rResult := f_Division(aTestArray[2], rValue2);
+iCounter := iCounter + 1;
+
+FOR iTestValue := 0 TO 10 BY 1 DO
+	aTestArray[iTestValue] := iCounter;
+	 IF iTestValue >3 THEN
+		 EXIT;
+	 END_IF
+END_FOR]]></ST>
+    </Implementation>
+    <LineIds Name="DoSomeMath">
+      <LineId Id="13" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="17" Count="1" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="35" Count="2" />
+      <LineId Id="34" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

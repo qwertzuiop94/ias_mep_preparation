@@ -3,20 +3,29 @@
   <POU Name="MAIN" Id="{e45175f3-872e-4651-bbfd-cbc74f854a11}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	rValue1	: REAL;	
-	rValue2	: REAL;
-	rResult	: REAL;
+	FBCounter	: fb_Counter;
+	iZaehler	: INT := 0;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[rResult := f_Addition(rSum1 := rValue1, rSum2 := rValue2);
-//alternatice
-rResult := f_Addition(rValue1, rValue2);]]></ST>
+      <ST><![CDATA[// Aufrufmöglichkeit 1
+FBCounter.bActive	:= TRUE;
+FBCounter.bReset	:= FALSE;
+FBCounter();
+iZaehler := FBCounter.iCounter;
+// Aufrufmöglichkeit 2
+FBCounter(bActive := TRUE, bReset := FALSE, iCounter=>iZaehler);
+
+]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="2" Count="0" />
-      <LineId Id="9" Count="0" />
-      <LineId Id="11" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="29" Count="1" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="24" Count="1" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="20" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="MAIN" Id="{3b07cc55-1f68-4919-a9db-3257e04150e1}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR	
+
+	FB_EdgeDetector	: fb_EdgeDetector;
+	bTaster 		: BOOL;
+	bLampe			: BOOL;
+	timeDelay		: TIME := T#200MS;
+	bDummy			: BOOL;
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[FB_EdgeDetector(bSignal := bTaster, timeON := timeDelay, bRisingEdge =>bLampe);
+IF bLampe THEN
+	bDummy := TRUE;
+ELSE
+	bDummy := FALSE;
+END_IF
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="14" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="21" Count="1" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="6" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="fb_EdgeDetector" Id="{faa96c68-9e8b-4c42-b790-932233c76990}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK fb_EdgeDetector
+VAR_INPUT
+	bSignal			:	BOOL;
+	timeON			:	TIME := T#200MS;
+END_VAR
+VAR_OUTPUT
+	bRisingEdge		:	BOOL;
+	bFallingEdge	: 	BOOL;
+END_VAR
+VAR
+	timer			:	TON;
+	bOnMeasure		:	BOOL;
+	bOldState		: 	BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// set default state
+timer.IN 	:= TRUE;
+bRisingEdge	:= FALSE;
+bFallingEdge:= FALSE;
+timer.PT	:= timeON;
+IF bSignal THEN
+	IF NOT bSignal =  bOldState THEN
+		// State wechsel
+		timer.IN := FALSE;
+		bOnMeasure := TRUE;
+	END_IF
+	IF timer.Q AND bOnMeasure THEN
+		bOnMeasure := FALSE;
+		bRisingEdge := TRUE;
+	END_IF
+ELSE
+	IF NOT bSignal =  bOldState THEN
+		// State wechsle
+		timer.IN := FALSE;
+		bOnMeasure := TRUE;
+	END_IF
+	IF timer.Q AND bOnMeasure THEN
+		bOnMeasure := FALSE;
+		bFallingEdge := TRUE;
+	END_IF
+END_IF
+
+timer();]]></ST>
+    </Implementation>
+    <LineIds Name="fb_EdgeDetector">
+      <LineId Id="53" Count="0" />
+      <LineId Id="84" Count="1" />
+      <LineId Id="82" Count="0" />
+      <LineId Id="66" Count="1" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="79" Count="1" />
+      <LineId Id="86" Count="0" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="94" Count="0" />
+      <LineId Id="97" Count="1" />
+      <LineId Id="96" Count="0" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="78" Count="0" />
+      <LineId Id="81" Count="0" />
+      <LineId Id="87" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="101" Count="2" />
+      <LineId Id="99" Count="0" />
+      <LineId Id="69" Count="0" />
+      <LineId Id="92" Count="0" />
+      <LineId Id="41" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
