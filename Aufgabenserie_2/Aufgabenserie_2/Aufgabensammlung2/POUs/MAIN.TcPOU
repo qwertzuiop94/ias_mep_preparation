@@ -1,13 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1">
-  <POU Name="MAIN" Id="{e45175f3-872e-4651-bbfd-cbc74f854a11}">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="MAIN" Id="{e45175f3-872e-4651-bbfd-cbc74f854a11}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
+	rValue1	: REAL;	
+	rValue2	: REAL;
+	rResult	: REAL;
 END_VAR
-]]>
-    </Declaration>
+]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[rResult := f_Addition(rSum1 := rValue1, rSum2 := rValue2);
+//alternatice
+rResult := f_Addition(rValue1, rValue2);]]></ST>
     </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="2" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="11" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
