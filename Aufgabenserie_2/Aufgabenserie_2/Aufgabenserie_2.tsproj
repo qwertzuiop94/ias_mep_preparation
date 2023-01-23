@@ -13,7 +13,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{A2248AA1-F6E7-40B4-9A46-69ED6B572A30}" Name="Aufgabensammlung2" PrjFilePath="Aufgabensammlung2\Aufgabensammlung2.plcproj" TmcFilePath="Aufgabensammlung2\Aufgabensammlung2.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{110D6767-12E9-0269-65E2-9DA0DC3C51A7}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Aufgabensammlung2\Aufgabensammlung2.tmc" TmcHash="{2C136F3F-268E-DD1B-9ECF-AF557C27C89C}">
 					<Name>Aufgabensammlung2 Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Contexts>
@@ -33,7 +33,7 @@
 				</Instance>
 			</Project>
 			<Project GUID="{2DE4B931-C973-461D-A201-80F5DFE477DF}" Name="TimerExample" PrjFilePath="TimerExample\TimerExample.plcproj" TmcFilePath="TimerExample\TimerExample.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{594ABB0F-FD91-1DFA-4110-C8F5CA917A83}">
+				<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="TimerExample\TimerExample.tmc" TmcHash="{BAA4D439-2A99-D100-C5A6-69690F4074CB}">
 					<Name>TimerExample Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Contexts>
